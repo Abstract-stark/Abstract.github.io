@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abstract's Digital Space</title>
+    <!-- Tailwind CSS CDN for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2e8pC+9v2T1aD7G0x45L23D1x8v+7a4/Jj43w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Font - Inter and a cyberpunk-style font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Body and Font Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #E5E7EB;
+            min-height: 100vh;
+            background: #0d001a; /* Darker, more purple-ish background */
+            position: relative;
+        }
+
+        /* --- Canvas and Particle Background --- */
+        #particleCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 0.8;
+        }
+
+        /* Container to center and constrain content */
+        .container {
+            max-width: 960px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- CSS Animations and Effects --- */
+
+        /* Glitch Effect for the main title */
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px #ff007b, -2px -2px #00e0ff; }
+            10% { text-shadow: 2px 2px #ff007b, -2px -2px #00e0ff; transform: translate(0); }
+            11% { text-shadow: -2px -2px #ff007b, 2px 2px #00e0ff; transform: translate(2px, 2px); }
+            12% { text-shadow: 2px -2px #ff007b, -2px 2px #00e0ff; transform: translate(-2px, -2px); }
+            15% { text-shadow: -2px 2px #ff007b, 2px -2px #00e0ff; transform: translate(1px, -1px); }
+            16% { text-shadow: -2px 2px #ff007b, 2px -2px #00e0ff; transform: translate(1px, -1px); }
+            17% { text-shadow: 2px 2px #ff007b, -2px -2px #00e0ff; transform: translate(0); }
+            18% { text-shadow: -2px -2px #ff007b, 2px 2px #00e0ff; transform: translate(2px, 2px); }
+            100% { text-shadow: 2px 2px #ff007b, -2px -2px #00e0ff; }
+        }
+
+        /* Animated gradient for backgrounds and highlights */
+        .animated-gradient-text {
+            background: linear-gradient(-45deg, #ff007b, #00e0ff, #ff00ff);
+            background-size: 400% 400%;
+            animation: colorFlow 15s ease infinite;
+        }
+        @keyframes colorFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Subtle Scaling on hover */
+        .section-card {
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .section-card:hover {
+            transform: scale(1.02);
+        }
+        
+        /* New, unique glow effects for the portfolio cards */
+        .portfolio-card:hover {
+            border: 1.5px solid rgba(255, 255, 255, 0.4);
+        }
+        .portfolio-card.glow-green:hover {
+            box-shadow: 0 0 40px rgba(0, 255, 128, 0.4), 0 0 20px rgba(0, 255, 128, 0.4);
+        }
+        .portfolio-card.glow-magenta:hover {
+            box-shadow: 0 0 40px rgba(255, 0, 255, 0.4), 0 0 20px rgba(255, 0, 255, 0.4);
+        }
+        .portfolio-card.glow-gold:hover {
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.4), 0 0 20px rgba(255, 215, 0, 0.4);
+        }
+
+
+        /* Specific element styles */
+        .glitch-text {
+            font-family: 'Orbitron', sans-serif;
+            animation: glitch 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+        }
+        
+        .subheading {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            color: #d1b8ff; /* A new, subtle purple for a different look */
+        }
+
+        /* Custom message box */
+        #messageBox {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #1a0033;
+            color: #fff;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 0 30px rgba(255, 0, 123, 0.5), 0 0 15px rgba(0, 224, 255, 0.5);
+            text-align: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+
+        #messageBox.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        #messageBox .close-btn {
+            background: #ff007b;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            margin-top: 1rem;
+            font-weight: bold;
+            transition: transform 0.2s ease;
+        }
+
+        #messageBox .close-btn:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-200">
+    <!-- Particle Background Canvas -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Navigation Bar at the top -->
+    <nav class="sticky top-0 bg-black/80 backdrop-blur-sm z-10 py-2 mb-16">
+        <div class="container flex justify-between items-center px-4">
+            <a href="#" class="text-3xl font-bold">Abstract</a>
+            <div class="space-x-4 md:space-x-8">
+                <a href="#about" class="text-gray-400 hover:text-white transition duration-300">About</a>
+                <a href="#interests" class="text-gray-400 hover:text-white transition duration-300">Interests</a>
+                <a href="#portfolio" class="text-gray-400 hover:text-white transition duration-300">Portfolio</a>
+                <a href="#social" class="text-gray-400 hover:text-white transition duration-300">Social</a>
+                <a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <!-- Main Hero Section -->
+        <header class="text-center mb-16">
+            <h1 class="text-6xl md:text-8xl font-bold glitch-text">Abstract</h1>
+            <p class="text-xl md:text-2xl mt-4 subheading">Digital Wanderer & Creative Explorer</p>
+        </header>
+
+        <!-- About Me Section -->
+        <section id="about" class="mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">About Me</h2>
+            <div class="bg-gray-900 rounded-xl p-8 shadow-xl section-card">
+                <p class="text-lg leading-relaxed">
+                    I'm Abstract, a certified keyboard warrior and a connoisseur of digital solitude. While others are busy networking, I'm probably optimizing my inventory or debating with an NPC. My social skills are mostly limited to in-game emotes, but my dedication to a good quest is unmatched. I'm less of a "people person" and more of a "my character's-inventory-is-perfect person."
+                </p>
+            </div>
+        </section>
+
+        <!-- What I'm Into Section -->
+        <section id="interests" class="mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">What I'm Into</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Interest Card 1 -->
+                <div class="bg-gray-900 rounded-xl p-6 shadow-xl section-card">
+                    <div class="flex items-center mb-4">
+                        <span class="text-3xl mr-4">🎮</span>
+                        <h3 class="text-2xl font-semibold">Competitive Gaming</h3>
+                    </div>
+                    <p class="text-gray-400">
+                        I live for the thrill of the clutch play and the satisfaction of mastering a new strategy. I love the teamwork and the grind to be the best.
+                    </p>
+                </div>
+                
+                <!-- Interest Card 2 -->
+                <div class="bg-gray-900 rounded-xl p-6 shadow-xl section-card">
+                    <div class="flex items-center mb-4">
+                        <span class="text-3xl mr-4">📖</span>
+                        <h3 class="text-2xl font-semibold">Story-driven Worlds</h3>
+                    </div>
+                    <p class="text-gray-400">
+                        Nothing beats getting lost in an immersive world with a great story. I'm a big fan of characters and narratives that stick with you long after the credits roll.
+                    </p>
+                </div>
+                
+                <!-- Interest Card 3 -->
+                <div class="bg-gray-900 rounded-xl p-6 shadow-xl section-card">
+                    <div class="flex items-center mb-4">
+                        <span class="text-3xl mr-4">💬</span>
+                        <h3 class="text-2xl font-semibold">Community Building</h3>
+                    </div>
+                    <p class="text-gray-400">
+                        Connecting with people is awesome. I enjoy chatting, sharing experiences, and being part of a cool, welcoming online community.
+                    </p>
+                </div>
+                
+                <!-- Interest Card 4 -->
+                <div class="bg-gray-900 rounded-xl p-6 shadow-xl section-card">
+                    <div class="flex items-center mb-4">
+                        <span class="text-3xl mr-4">💡</span>
+                        <h3 class="text-2xl font-semibold">Exploring New Ideas</h3>
+                    </div>
+                    <p class="text-gray-400">
+                        I love learning new things and seeing how different pieces fit together. It's like solving a puzzle, but with a lot more cool discoveries along the way.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Portfolio Section -->
+        <section id="portfolio" class="mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">My Work</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Portfolio Card 1 (Gamer) -->
+                <a href="#" class="block bg-gray-900 rounded-xl p-6 shadow-xl section-card portfolio-card glow-green">
+                    <h3 class="text-xl font-semibold mb-2">High-Stakes Gameplay</h3>
+                    <p class="text-gray-400 text-sm">My focus is on mastering the meta and executing strategies with pixel-perfect precision. I track my stats, analyze my opponents, and live for the challenge of competitive play.</p>
+                </a>
+                <!-- Portfolio Card 2 (Aesthetic) -->
+                <a href="#" class="block bg-gray-900 rounded-xl p-6 shadow-xl section-card portfolio-card glow-magenta">
+                    <h3 class="text-xl font-semibold mb-2">Visual Synth</h3>
+                    <p class="text-gray-400 text-sm">A collection of my digital art, UI/UX mockups, and personal graphic designs. I'm obsessed with moody color palettes, vaporwave aesthetics, and clean, futuristic interfaces.</p>
+                </a>
+                <!-- Portfolio Card 3 (The Thing) -->
+                <a href="#" class="block bg-gray-900 rounded-xl p-6 shadow-xl section-card portfolio-card glow-gold">
+                    <h3 class="text-xl font-semibold mb-2">Narrative & Lore</h3>
+                    <p class="text-gray-400 text-sm">Beyond the screen, I craft worlds and write stories. This section is dedicated to my narrative design documents, fan-fiction, and character backstories from the deepest corners of my imagination.</p>
+                </a>
+            </div>
+        </section>
+        
+        <!-- New Social Section -->
+        <section id="social" class="mb-16 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Let's Connect</h2>
+            <div class="flex justify-center space-x-8 text-4xl">
+                <a href="#" class="social-link text-white hover:text-[#ff007b] transition duration-300" data-social="Snapchat">
+                    <i class="fab fa-snapchat"></i>
+                </a>
+                <a href="#" class="social-link text-white hover:text-[#00e0ff] transition duration-300" data-social="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-link text-white hover:text-[#ff007b] transition duration-300" data-social="Telegram">
+                    <i class="fab fa-telegram"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="contact" class="text-center text-gray-500 mt-16">
+            <p>&copy; 2025 Abstract. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <!-- Custom Message Box Element -->
+    <div id="messageBox" class="hidden">
+        <p class="text-xl font-semibold">Looks like you're out of my accepting list.</p>
+        <button id="closeMessageBtn" class="close-btn">OK</button>
+    </div>
+
+    <script>
+        // Particle Background Animation
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouse = {
+            x: null,
+            y: null,
+            radius: 150
+        };
+
+        window.addEventListener('mousemove', function(event){
+            mouse.x = event.x;
+            mouse.y = event.y;
+        });
+
+        // --- Particle Class and Functions ---
+        // Class for the particles
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 1.5 + 0.5;
+                this.baseX = this.x;
+                this.baseY = this.y;
+                this.density = (Math.random() * 30) + 1;
+                this.color = `hsl(${Math.random() * 360}, 100%, 75%)`; // Random hue
+            }
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            update() {
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+
+                let forceDirectionX = dx / distance;
+                let forceDirectionY = dy / distance;
+                let maxDistance = mouse.radius;
+                let force = (maxDistance - distance) / maxDistance;
+                let directionX = forceDirectionX * force * this.density;
+                let directionY = forceDirectionY * force * this.density;
+
+                if (distance < mouse.radius) {
+                    this.x -= directionX;
+                    this.y -= directionY;
+                } else {
+                    if (this.x !== this.baseX) {
+                        let dx = this.x - this.baseX;
+                        this.x -= dx/10;
+                    }
+                    if (this.y !== this.baseY) {
+                        let dy = this.y - this.baseY;
+                        this.y -= dy/10;
+                    }
+                }
+            }
+        }
+
+        // Function to create particle connections
+        function connect() {
+            let opacityValue = 1;
+            for (let a = 0; a < particles.length; a++) {
+                for (let b = a; b < particles.length; b++) {
+                    let distance = ((particles[a].x - particles[b].x) * (particles[a].x - particles[b].x)) + 
+                                   ((particles[a].y - particles[b].y) * (particles[a].y - particles[b].y));
+                    if (distance < 3000) {
+                        opacityValue = 1 - (distance / 3000);
+                        ctx.strokeStyle = `rgba(0, 224, 255, ${opacityValue})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[a].x, particles[a].y);
+                        ctx.lineTo(particles[b].x, particles[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        // Function to initialize particles
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < 250; i++) {
+                particles.push(new Particle());
+            }
+        }
+        
+        // Animation loop
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+            }
+            connect();
+            requestAnimationFrame(animate);
+        }
+
+        // Set canvas size and make it responsive
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initParticles(); // Re-initialize particles on resize
+        }
+        window.addEventListener('resize', resizeCanvas);
+        
+        // --- Custom Message Box Logic ---
+        const messageBox = document.getElementById('messageBox');
+        const closeBtn = document.getElementById('closeMessageBtn');
+        const socialLinks = document.querySelectorAll('.social-link');
+
+        function showMessage(message) {
+            const messageText = messageBox.querySelector('p');
+            messageText.textContent = message;
+            messageBox.classList.remove('hidden');
+            messageBox.classList.add('show');
+        }
+
+        function hideMessage() {
+            messageBox.classList.remove('show');
+            messageBox.classList.add('hidden');
+        }
+
+        // Add event listeners to all social links
+        socialLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default link behavior
+                showMessage("Looks like you're out of my accepting list.");
+            });
+        });
+
+        // Add event listener to the close button
+        closeBtn.addEventListener('click', hideMessage);
+
+        window.onload = function() {
+            resizeCanvas();
+            animate();
+        };
+    </script>
+</body>
+</html>
