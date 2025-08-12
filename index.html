@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abstract's Digital Space</title>
-    <!-- Tailwind CSS CDN for modern styling -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HS3L1GFHCQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-HS3L1GFHCQ');
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for social icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2e8pC+9v2T1aD7G0x45L23D1x8v+7a4/Jj43w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Google Font - Inter and a cyberpunk-style font -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2e8pC+9v2T1aD7G0x45L23D1x8v+7a4/Jj43w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
@@ -146,10 +151,8 @@
     </style>
 </head>
 <body class="bg-black text-gray-200">
-    <!-- Particle Background Canvas -->
     <canvas id="particleCanvas"></canvas>
 
-    <!-- Navigation Bar at the top -->
     <nav class="sticky top-0 bg-black/80 backdrop-blur-sm z-10 py-2 mb-16">
         <div class="container flex justify-between items-center px-4">
             <a href="#" class="text-3xl font-bold">Abstract</a>
@@ -164,13 +167,11 @@
     </nav>
     
     <div class="container">
-        <!-- Main Hero Section -->
         <header class="text-center mb-16">
             <h1 class="text-6xl md:text-8xl font-bold glitch-text">Abstract</h1>
             <p class="text-xl md:text-2xl mt-4 subheading">Digital Wanderer & Creative Explorer</p>
         </header>
 
-        <!-- About Me Section -->
         <section id="about" class="mb-16">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">About Me</h2>
             <div class="bg-gray-900 rounded-xl p-8 shadow-xl section-card">
@@ -180,11 +181,9 @@
             </div>
         </section>
 
-        <!-- What I'm Into Section -->
         <section id="interests" class="mb-16">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">What I'm Into</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Interest Card 1 -->
                 <div class="bg-gray-900 rounded-xl p-6 shadow-xl section-card">
                     <div class="flex items-center mb-4">
                         <span class="text-3xl mr-4">🎮</span>
@@ -195,7 +194,6 @@
                     </p>
                 </div>
                 
-                <!-- Interest Card 2 -->
                 <div class="bg-gray-900 rounded-xl p-6 shadow-xl section-card">
                     <div class="flex items-center mb-4">
                         <span class="text-3xl mr-4">📖</span>
@@ -206,7 +204,6 @@
                     </p>
                 </div>
                 
-                <!-- Interest Card 3 -->
                 <div class="bg-gray-900 rounded-xl p-6 shadow-xl section-card">
                     <div class="flex items-center mb-4">
                         <span class="text-3xl mr-4">💬</span>
@@ -217,7 +214,6 @@
                     </p>
                 </div>
                 
-                <!-- Interest Card 4 -->
                 <div class="bg-gray-900 rounded-xl p-6 shadow-xl section-card">
                     <div class="flex items-center mb-4">
                         <span class="text-3xl mr-4">💡</span>
@@ -230,21 +226,17 @@
             </div>
         </section>
 
-        <!-- New Portfolio Section -->
         <section id="portfolio" class="mb-16">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">My Work</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Portfolio Card 1 (Gamer) -->
                 <a href="#" class="block bg-gray-900 rounded-xl p-6 shadow-xl section-card portfolio-card glow-green">
                     <h3 class="text-xl font-semibold mb-2">High-Stakes Gameplay</h3>
                     <p class="text-gray-400 text-sm">My focus is on mastering the meta and executing strategies with pixel-perfect precision. I track my stats, analyze my opponents, and live for the challenge of competitive play.</p>
                 </a>
-                <!-- Portfolio Card 2 (Aesthetic) -->
                 <a href="#" class="block bg-gray-900 rounded-xl p-6 shadow-xl section-card portfolio-card glow-magenta">
                     <h3 class="text-xl font-semibold mb-2">Visual Synth</h3>
                     <p class="text-gray-400 text-sm">A collection of my digital art, UI/UX mockups, and personal graphic designs. I'm obsessed with moody color palettes, vaporwave aesthetics, and clean, futuristic interfaces.</p>
                 </a>
-                <!-- Portfolio Card 3 (The Thing) -->
                 <a href="#" class="block bg-gray-900 rounded-xl p-6 shadow-xl section-card portfolio-card glow-gold">
                     <h3 class="text-xl font-semibold mb-2">Narrative & Lore</h3>
                     <p class="text-gray-400 text-sm">Beyond the screen, I craft worlds and write stories. This section is dedicated to my narrative design documents, fan-fiction, and character backstories from the deepest corners of my imagination.</p>
@@ -252,7 +244,6 @@
             </div>
         </section>
         
-        <!-- New Social Section -->
         <section id="social" class="mb-16 text-center">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Let's Connect</h2>
             <div class="flex justify-center space-x-8 text-4xl">
@@ -268,13 +259,11 @@
             </div>
         </section>
 
-        <!-- Footer -->
         <footer id="contact" class="text-center text-gray-500 mt-16">
             <p>&copy; 2025 Abstract. All rights reserved.</p>
         </footer>
     </div>
     
-    <!-- Custom Message Box Element -->
     <div id="messageBox" class="hidden">
         <p class="text-xl font-semibold">Looks like you're out of my accepting list.</p>
         <button id="closeMessageBtn" class="close-btn">OK</button>
@@ -421,6 +410,59 @@
             resizeCanvas();
             animate();
         };
+
+        // Google Analytics machine info event sender
+        // This is placed here so it runs after all the other JS is defined.
+        function getGpuInfo() {
+            try {
+                const canvas = document.createElement('canvas');
+                const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+                if (!gl) return 'Unavailable';
+                const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+                if (debugInfo) {
+                    return gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) || 'Unavailable';
+                }
+                return 'Unavailable';
+            } catch (e) {
+                return 'Unavailable';
+            }
+        }
+
+        function collectVisitorInfo() {
+            return {
+                user_agent: navigator.userAgent || 'Unknown',
+                platform: navigator.platform || 'Unknown',
+                cpu_cores: navigator.hardwareConcurrency || 'Unknown',
+                ram_gb: navigator.deviceMemory || 'Unknown',
+                screen_width: window.screen.width || 'Unknown',
+                screen_height: window.screen.height || 'Unknown',
+                gpu: getGpuInfo(),
+            };
+        }
+
+        function sendMachineInfoToGA() {
+            const info = collectVisitorInfo();
+
+            function truncate(str, maxLen = 36) {
+                if (typeof str !== 'string') return str;
+                return str.length > maxLen ? str.slice(0, maxLen - 3) + '...' : str;
+            }
+
+            gtag('event', 'visitor_machine_info', {
+                user_agent: truncate(info.user_agent),
+                platform: truncate(info.platform),
+                cpu_cores: info.cpu_cores,
+                ram_gb: info.ram_gb,
+                screen_width: info.screen_width,
+                screen_height: info.screen_height,
+                gpu: truncate(info.gpu),
+            });
+        }
+
+        // Send the event once page loads
+        window.addEventListener('load', () => {
+            sendMachineInfoToGA();
+        });
     </script>
 </body>
 </html>
