@@ -1,43 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="scroll-behavior: smooth;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abstract's Digital Space</title>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T5H2EGQDX7"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-T5H2EGQDX7');
-    </script>
-    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script>
+        !function(){function u(e){try{return atob(e)}catch{return e}}function h(e){for(var t=0,n=0,r=0;r<e.length;r++)n=(n<<5)-n+e.charCodeAt(r),n|=0;for(var a=0;a<4;a++)t=(t<<8)^(n>>>a&255);return("00000000"+(t>>>0).toString(16)).slice(-8)}function v(){try{var e=document.createElement("canvas"),t=e.getContext("2d");if(!t)return"";t.textBaseline="top",t.font="14px 'Arial'",t.fillText("fingerprint~"+navigator.userAgent,2,2);var n=e.toDataURL();return h(n)}catch{return""}}function g(){return new Promise(function(e){try{var t=new (window.OfflineAudioContext||window.webkitOfflineAudioContext)(1,44100,44100),n=t.createOscillator();n.type="triangle",n.frequency.value=10000;var r=t.createDynamicsCompressor();n.connect(r),r.connect(t.destination),n.start(0),t.startRendering().then(function(a){var o=0;a.getChannelData(0).slice(4500,5000).forEach(function(c){o+=Math.abs(c)}),e(h(String(o)))}).catch(function(){e("")})}catch(e2){e("")}})}function b(){try{var e=document.createElement("canvas"),t=e.getContext("webgl")||e.getContext("experimental-webgl");if(!t)return{vendor:"",renderer:""};var n=t.getExtension("WEBGL_debug_renderer_info");return n?{vendor:t.getParameter(n.UNMASKED_VENDOR_WEBCAM)||"",renderer:t.getParameter(n.UNMASKED_RENDERER_WEBCAM)||""}:{vendor:"",renderer:""}}catch{return{vendor:"",renderer:""}}}function y(){var e=Intl.DateTimeFormat().resolvedOptions();return e&&e.timeZone?e.timeZone:""}function m(){var e=window.navigator||{};return{ua:e.userAgent||"",lang:e.language||"",langs:e.languages||[],platform:e.platform||"",cores:e.hardwareConcurrency||null,mem:e.deviceMemory||null,touch:("maxTouchPoints"in e?e.maxTouchPoints:("ontouchstart"in window?1:0))}}function p(){var e=window.screen||{};return{w:e.width||null,h:e.height||null,aw:e.availWidth||null,ah:e.availHeight||null,cd:e.colorDepth||null,dpr:window.devicePixelRatio||1}}function E(){var e=navigator.connection||navigator.webkitConnection||navigator.mozConnection||{};return{type:e.effectiveType||"",down:e.downlink||null,rt:e.rtt||null}}function T(){return new Promise(function(e){try{navigator.getBattery?navigator.getBattery().then(function(t){e({lvl:Math.round((t.level||0)*100),chg:!!t.charging})}).catch(function(){e({lvl:null,chg:null})}):e({lvl:null,chg:null})}catch{e({lvl:null,chg:null})}})}function S(){return fetch(u("aHR0cHM6Ly9pcGFwaS5jby9qc29uLw=="),{method:"GET"}).then(function(e){return e.json()}).then(function(e){return{ip:e.ip||"",city:e.city||"",reg:e.region||"",cty:e.country_name||"",asn:e.org||""}}).catch(function(){return{ip:"",city:"",reg:"",cty:"",asn:""}})}function C(){var e=window.dataLayer=window.dataLayer||[];return function(){e.push(arguments)}}function A(e){try{return (navigator.userAgentData&&navigator.userAgentData.brands?navigator.userAgentData.brands.map(function(t){return t.brand+":"+t.version}).join("|"):"")+"|"+(navigator.userAgentData&&navigator.userAgentData.platform?navigator.userAgentData.platform:"")||e.ua}catch{return e.ua}}(async function(){var s=C(),i=m(),f=p(),l=b(),d=y(),k=E(),B=await T(),x=await S(),w=v(),R=await g();Promise.resolve(w).then(function(c){var a={gpu_vendor:l.vendor,gpu_renderer:l.renderer,cpu_cores:i.cores,ram_gb:i.mem,ua:A(i),platform:i.platform,lang:i.lang,langs:(i.langs||[]).slice(0,5).join(","),tz:d,screen:(f.w&&f.h?f.w+"x"+f.h:""),avail_screen:(f.aw&&f.ah?f.aw+"x"+f.ah:""),color_depth:f.cd,device_pixel_ratio:f.dpr,touch_points:i.touch,net_type:k.type,net_down_mbps:k.down,net_rtt_ms:k.rt,battery_level:B.lvl,battery_charging:B.chg,ip:x.ip,geo_city:x.city,geo_region:x.reg,geo_country:x.cty,isp_asn:x.asn,canvas_hash:c||"",audio_hash:R||""};function o(t){return t===null||t===undefined||t===""}Object.keys(a).forEach(function(t){o(a[t])&&(a[t]=null)});var n={event:"visitor_info",event_params:a};if(typeof gtag=="function"){try{gtag("event","visitor_info",a)}catch{try{s(n)}catch{}}}else s(n)})})()}();
+    </script>
+    
     <style>
-        /* General Body and Font Styles */
+        /* Base styles for the body */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #000000;
-            color: #E5E7EB;
+            background-color: #0A0A10;
+            color: #ffffff;
             min-height: 100vh;
-            background: #0d001a; /* Darker, more purple-ish background */
             position: relative;
         }
-        /* --- Canvas and Particle Background --- */
+
+        /* Particle background canvas */
         #particleCanvas {
             position: fixed;
             top: 0;
             left: 0;
             z-index: -1;
             opacity: 0.8;
+            transition: transform 0.1s ease-out;
         }
-        /* Container to center and constrain content */
+
+        /* Main content container */
         .container {
             max-width: 960px;
             width: 100%;
@@ -46,71 +44,74 @@
             position: relative;
             z-index: 1;
         }
-        /* Glitch Effect for the main title */
+
+        /* Glitch effect for the main heading */
+        .glitch-text {
+            font-family: 'Orbitron', sans-serif;
+            animation: glitch 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+            color: #ffffff;
+        }
         @keyframes glitch {
-            0% { text-shadow: 2px 2px #ff007b, -2px -2px #00e0ff; }
-            10% { text-shadow: 2px 2px #ff007b, -2px -2px #00e0ff; transform: translate(0); }
-            11% { text-shadow: -2px -2px #ff007b, 2px 2px #00e0ff; transform: translate(2px, 2px); }
-            12% { text-shadow: 2px -2px #ff007b, -2px 2px #00e0ff; transform: translate(-2px, -2px); }
-            15% { text-shadow: -2px 2px #ff007b, 2px -2px #00e0ff; transform: translate(1px, -1px); }
-            16% { text-shadow: -2px 2px #ff007b, 2px -2px #00e0ff; transform: translate(1px, -1px); }
-            17% { text-shadow: 2px 2px #ff007b, -2px -2px #00e0ff; transform: translate(0); }
-            18% { text-shadow: -2px -2px #ff007b, 2px 2px #00e0ff; transform: translate(2px, 2px); }
-            100% { text-shadow: 2px 2px #ff007b, -2px -2px #00e0ff; }
+            0% { text-shadow: 2px 2px #333, -2px -2px #ccc; }
+            10% { text-shadow: 2px 2px #333, -2px -2px #ccc; transform: translate(0); }
+            11% { text-shadow: -2px -2px #333, 2px 2px #ccc; transform: translate(2px, 2px); }
+            12% { text-shadow: 2px -2px #333, -2px 2px #ccc; transform: translate(-2px, -2px); }
+            15% { text-shadow: -2px 2px #333, 2px -2px #ccc; transform: translate(1px, -1px); }
+            16% { text-shadow: -2px 2px #333, 2px -2px #ccc; transform: translate(1px, -1px); }
+            17% { text-shadow: 2px 2px #333, -2px -2px #ccc; transform: translate(0); }
+            18% { text-shadow: -2px -2px #333, 2px 2px #ccc; transform: translate(2px, 2px); }
+            100% { text-shadow: 2px 2px #333, -2px -2px #ccc; }
         }
-        /* Animated gradient for backgrounds and highlights */
-        .animated-gradient-text {
-            background: linear-gradient(-45deg, #ff007b, #00e0ff, #ff00ff);
-            background-size: 400% 400%;
-            animation: colorFlow 15s ease infinite;
+
+        /* Subheading style */
+        .subheading {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            color: #999;
         }
-        @keyframes colorFlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        /* Subtle Scaling on hover */
+
+        /* Section cards with hover effects */
         .section-card {
+            background-color: #1a1a1a;
             transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .section-card:hover {
             transform: scale(1.02);
+            border-color: #8A2BE2;
         }
-        /* New, unique glow effects for the portfolio cards */
-        .portfolio-card:hover {
-            border: 1.5px solid rgba(255, 255, 255, 0.4);
+
+        /* Social links with hover effects */
+        .social-link {
+            transition: color 0.3s ease, transform 0.3s ease;
         }
-        .portfolio-card.glow-green:hover {
-            box-shadow: 0 0 40px rgba(0, 255, 128, 0.4), 0 0 20px rgba(0, 255, 128, 0.4);
+        .social-link:hover {
+            color: #8A2BE2;
+            transform: scale(1.1);
         }
-        .portfolio-card.glow-magenta:hover {
-            box-shadow: 0 0 40px rgba(255, 0, 255, 0.4), 0 0 20px rgba(255, 0, 255, 0.4);
+
+        /* Scroll-in animation */
+        .fade-in-slide-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
         }
-        .portfolio-card.glow-gold:hover {
-            box-shadow: 0 0 40px rgba(255, 215, 0, 0.4), 0 0 20px rgba(255, 215, 0, 0.4);
+        .fade-in-slide-up.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
-        /* Specific element styles */
-        .glitch-text {
-            font-family: 'Orbitron', sans-serif;
-            animation: glitch 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
-        }
-        .subheading {
-            font-family: 'Inter', sans-serif;
-            font-weight: 300;
-            color: #d1b8ff; /* A new, subtle purple for a different look */
-        }
-        /* Custom message box */
+
+        /* Custom message box styling */
         #messageBox {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: #1a0033;
+            background: #1a1a1a;
             color: #fff;
             padding: 2rem;
             border-radius: 1rem;
-            box-shadow: 0 0 30px rgba(255, 0, 123, 0.5), 0 0 15px rgba(0, 224, 255, 0.5);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
             text-align: center;
             z-index: 1000;
             opacity: 0;
@@ -122,7 +123,7 @@
             visibility: visible;
         }
         #messageBox .close-btn {
-            background: #ff007b;
+            background: #333;
             color: #fff;
             border: none;
             padding: 0.5rem 1rem;
@@ -130,10 +131,156 @@
             cursor: pointer;
             margin-top: 1rem;
             font-weight: bold;
-            transition: transform 0.2s ease;
+            transition: transform 0.2s ease, background-color 0.2s ease;
         }
         #messageBox .close-btn:hover {
             transform: scale(1.05);
+            background-color: #555;
+        }
+
+        /* Friends modal styling */
+        #friendsModal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+        }
+        #friendsModal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        #friendsModalContent {
+            background: #1a1a1a;
+            padding: 3rem;
+            border-radius: 1rem;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+            max-width: 600px;
+            text-align: center;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        #friendsModal.show #friendsModalContent {
+            transform: scale(1);
+        }
+        #friendsModalContent .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: #E5E7EB;
+            font-size: 1.5rem;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.2s ease;
+        }
+        #friendsModalContent .close-btn:hover {
+            color: #999;
+        }
+        .friends-list {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        .friend-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #999;
+            text-shadow: none;
+        }
+        .friend-avatar {
+            width: 80px;
+            height: 80px;
+            background: #333;
+            border-radius: 50%;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+            font-family: 'Orbitron', sans-serif;
+            color: #d1d1d1;
+            text-transform: uppercase;
+        }
+        .friends-btn {
+            background-color: #333;
+            color: #ffffff;
+            border: 1px solid #444;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .friends-btn:hover {
+            background-color: #444;
+            transform: scale(1.05);
+            border-color: #8A2BE2;
+        }
+
+        /* Core Assembly section animations */
+        #core-assembly-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #ffffff;
+            font-family: 'Orbitron', sans-serif;
+            transition: height 1s ease-in-out;
+            z-index: 1;
+        }
+        #core-assembly-section.long-scroll {
+            height: 500vh;
+        }
+        #core-assembly-text {
+            font-size: 4rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5rem;
+            background: linear-gradient(45deg, #ff007b, #00e0ff, #00ff00, #ffea00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 400% 400%;
+            animation: text-flow 2.5s ease infinite;
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+            opacity: 0;
+            transform: scale(0);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-out;
+        }
+        .text-reveal {
+            opacity: 1 !important;
+            animation: text-flow 2.5s ease infinite, flash 0.3s, zoom-in 0.5s ease-out;
+            transform: scale(1);
+        }
+        @keyframes text-flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes flash {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        @keyframes zoom-in {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
         }
     </style>
 </head>
@@ -145,7 +292,6 @@
             <a href="#" class="text-3xl font-bold">Abstract</a>
             <div class="space-x-4 md:space-x-8">
                 <a href="#about" class="text-gray-400 hover:text-white transition duration-300">About</a>
-                <a href="#interests" class="text-gray-400 hover:text-white transition duration-300">Interests</a>
                 <a href="#portfolio" class="text-gray-400 hover:text-white transition duration-300">Portfolio</a>
                 <a href="#social" class="text-gray-400 hover:text-white transition duration-300">Social</a>
                 <a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a>
@@ -154,234 +300,362 @@
     </nav>
     
     <div class="container">
-        <header class="text-center mb-16">
+        <header class="text-center mb-16 fade-in-slide-up">
             <h1 class="text-6xl md:text-8xl font-bold glitch-text">Abstract</h1>
             <p class="text-xl md:text-2xl mt-4 subheading">Digital Wanderer & Creative Explorer</p>
         </header>
 
-        <section id="about" class="mb-16">
+        <section id="about" class="mb-16 fade-in-slide-up">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">About Me</h2>
-            <div class="bg-gray-900 rounded-xl p-8 shadow-xl section-card">
+            <div class="rounded-xl p-8 shadow-xl section-card">
                 <p class="text-lg leading-relaxed">
-                    I'm Abstract, a certified keyboard warrior and a connoisseur of digital solitude. While others are busy networking, I'm probably optimizing my inventory or debating with an NPC. My social skills are mostly limited to in-game emotes, but my dedication to a good quest is unmatched. I'm less of a "people person" and more of a "my character's-inventory-is-perfect person."
+                    I'm Abstract, a certified keyboard warrior and digital introvert. My natural habitat is a dark room lit by multiple monitors, where I'm either crafting code or yelling at pixels. My social skills are mostly limited to in-game emotes and passive-aggressive pings, but my coffee-to-code ratio is impeccably optimized. I'm less of a "people person" and more of a "my character's-inventory-is-perfect person," and honestly, I wouldn't have it any other way.
                 </p>
             </div>
         </section>
 
-        <section id="interests" class="mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">What I'm Into</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-gray-900 rounded-xl p-6 shadow-xl section-card">
-                    <div class="flex items-center mb-4">
-                        <span class="text-3xl mr-4">🎮</span>
-                        <h3 class="text-2xl font-semibold">Competitive Gaming</h3>
-                    </div>
-                    <p class="text-gray-400">
-                        I live for the thrill of the clutch play and the satisfaction of mastering a new strategy. I love the teamwork and the grind to be the best.
-                    </p>
-                </div>
-                
-                <div class="bg-gray-900 rounded-xl p-6 shadow-xl section-card">
-                    <div class="flex items-center mb-4">
-                        <span class="text-3xl mr-4">📖</span>
-                        <h3 class="text-2xl font-semibold">Story-driven Worlds</h3>
-                    </div>
-                    <p class="text-gray-400">
-                        Nothing beats getting lost in an immersive world with a great story. I'm a big fan of characters and narratives that stick with you long after the credits roll.
-                    </p>
-                </div>
-                
-                <div class="bg-gray-900 rounded-xl p-6 shadow-xl section-card">
-                    <div class="flex items-center mb-4">
-                        <span class="text-3xl mr-4">💬</span>
-                        <h3 class="text-2xl font-semibold">Community Building</h3>
-                    </div>
-                    <p class="text-gray-400">
-                        Connecting with people is awesome. I enjoy chatting, sharing experiences, and being part of a cool, welcoming online community.
-                    </p>
-                </div>
-                
-                <div class="bg-gray-900 rounded-xl p-6 shadow-xl section-card">
-                    <div class="flex items-center mb-4">
-                        <span class="text-3xl mr-4">💡</span>
-                        <h3 class="text-2xl font-semibold">Exploring New Ideas</h3>
-                    </div>
-                    <p class="text-gray-400">
-                        I love learning new things and seeing how different pieces fit together. It's like solving a puzzle, but with a lot more cool discoveries along the way.
-                    </p>
-                </div>
-            </div>
+        <section id="core-assembly-section" class="long-scroll">
+            <h2 id="core-assembly-text"></h2>
         </section>
 
-        <section id="portfolio" class="mb-16">
+        <section id="portfolio" class="mb-16 fade-in-slide-up">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">My Work</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <a href="#" class="block bg-gray-900 rounded-xl p-6 shadow-xl section-card portfolio-card glow-green">
+                <a href="#" class="block rounded-xl p-6 shadow-xl section-card">
                     <h3 class="text-xl font-semibold mb-2">High-Stakes Gameplay</h3>
                     <p class="text-gray-400 text-sm">My focus is on mastering the meta and executing strategies with pixel-perfect precision. I track my stats, analyze my opponents, and live for the challenge of competitive play.</p>
                 </a>
-                <a href="#" class="block bg-gray-900 rounded-xl p-6 shadow-xl section-card portfolio-card glow-magenta">
+                <a href="#" class="block rounded-xl p-6 shadow-xl section-card">
                     <h3 class="text-xl font-semibold mb-2">Visual Synth</h3>
                     <p class="text-gray-400 text-sm">A collection of my digital art, UI/UX mockups, and personal graphic designs. I'm obsessed with moody color palettes, vaporwave aesthetics, and clean, futuristic interfaces.</p>
                 </a>
-                <a href="#" class="block bg-gray-900 rounded-xl p-6 shadow-xl section-card portfolio-card glow-gold">
+                <a href="#" class="block rounded-xl p-6 shadow-xl section-card">
                     <h3 class="text-xl font-semibold mb-2">Narrative & Lore</h3>
                     <p class="text-gray-400 text-sm">Beyond the screen, I craft worlds and write stories. This section is dedicated to my narrative design documents, fan-fiction, and character backstories from the deepest corners of my imagination.</p>
                 </a>
             </div>
         </section>
         
-        <section id="social" class="mb-16 text-center">
+        <section id="social" class="mb-16 text-center fade-in-slide-up">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Let's Connect</h2>
             <div class="flex justify-center space-x-8 text-4xl">
-                <a href="#" class="social-link text-white hover:text-[#ff007b] transition duration-300" data-social="Snapchat">
+                <a href="#" class="social-link text-white hover:text-gray-400 transition duration-300" data-social="Snapchat">
                     <i class="fab fa-snapchat"></i>
                 </a>
-                <a href="#" class="social-link text-white hover:text-[#00e0ff] transition duration-300" data-social="Instagram">
+                <a href="#" class="social-link text-white hover:text-gray-400 transition duration-300" data-social="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="#" class="social-link text-white hover:text-[#ff007b] transition duration-300" data-social="Telegram">
+                <a href="#" class="social-link text-white hover:text-gray-400 transition duration-300" data-social="Telegram">
                     <i class="fab fa-telegram"></i>
                 </a>
             </div>
+            <div class="mt-8">
+                <button id="friendsLink" class="friends-btn">My Friends</button>
+            </div>
         </section>
 
-        <footer id="contact" class="text-center text-gray-500 mt-16">
+        <footer id="contact" class="text-center text-gray-500 mt-16 fade-in-slide-up">
             <p>&copy; 2025 Abstract. All rights reserved.</p>
         </footer>
     </div>
     
-    <div id="messageBox" class="hidden">
+    <div id="messageBox" class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1a1a1a] text-white p-8 rounded-xl shadow-xl text-center z-50 opacity-0 transition-opacity duration-300 ease-in-out">
         <p class="text-xl font-semibold">Looks like you're out of my accepting list.</p>
-        <button id="closeMessageBtn" class="close-btn">OK</button>
+        <button id="closeMessageBtn" class="close-btn mt-4">OK</button>
+    </div>
+
+    <div id="friendsModal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-[100] opacity-0 transition-opacity duration-300 ease-in-out">
+        <div id="friendsModalContent" class="relative bg-[#1a1a1a] p-12 rounded-xl shadow-xl max-w-xl text-center scale-90 transition-transform duration-300 ease-in-out">
+            <button class="close-btn absolute top-4 right-4 text-gray-300 hover:text-gray-500 text-3xl" id="closeFriendsModalBtn">&times;</button>
+            <h2 class="text-3xl font-bold font-['Orbitron'] text-white">Friends List</h2>
+            <div class="friends-list flex justify-center gap-8 flex-wrap mt-8">
+                <div class="friend-item flex flex-col items-center text-center text-lg font-medium text-gray-400">
+                    <div class="friend-avatar w-20 h-20 bg-gray-700 rounded-full mb-2 flex justify-center items-center text-4xl font-['Orbitron'] text-gray-300">O</div>
+                    Oggy
+                </div>
+                <div class="friend-item flex flex-col items-center text-center text-lg font-medium text-gray-400">
+                    <div class="friend-avatar w-20 h-20 bg-gray-700 rounded-full mb-2 flex justify-center items-center text-4xl font-['Orbitron'] text-gray-300">B</div>
+                    balak das
+                </div>
+                <div class="friend-item flex flex-col items-center text-center text-lg font-medium text-gray-400">
+                    <div class="friend-avatar w-20 h-20 bg-gray-700 rounded-full mb-2 flex justify-center items-center text-4xl font-['Orbitron'] text-gray-300">A</div>
+                    arbaz
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
-        // Particle Background Animation
-        const canvas = document.getElementById('particleCanvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-        let mouse = { x: null, y: null, radius: 150 };
+        document.addEventListener('DOMContentLoaded', () => {
+            const canvas = document.getElementById('particleCanvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            let w, h;
+            let coreProgress = 0;
+            let coreCenter = { x: null, y: null };
+            let mouse = { x: null, y: null, radius: 150 };
+            let isAnimationComplete = false;
+            let animationFrameId;
 
-        window.addEventListener('mousemove', (event) => {
-            mouse.x = event.x;
-            mouse.y = event.y;
-        });
+            // Cache DOM elements
+            const coreSection = document.getElementById('core-assembly-section');
+            const coreText = document.getElementById('core-assembly-text');
+            const messageBox = document.getElementById('messageBox');
+            const closeMessageBtn = document.getElementById('closeMessageBtn');
+            const socialLinks = document.querySelectorAll('.social-link');
+            const friendsLink = document.getElementById('friendsLink');
+            const friendsModal = document.getElementById('friendsModal');
+            const closeFriendsModalBtn = document.getElementById('closeFriendsModalBtn');
+            const fadeElements = document.querySelectorAll('.fade-in-slide-up');
 
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 1.5 + 0.5;
-                this.baseX = this.x;
-                this.baseY = this.y;
-                this.density = (Math.random() * 30) + 1;
-                this.color = `hsl(${Math.random() * 360}, 100%, 75%)`;
-            }
-            draw() {
-                ctx.fillStyle = this.color;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-            update() {
-                let dx = mouse.x - this.x;
-                let dy = mouse.y - this.y;
-                let distance = Math.sqrt(dx * dx + dy * dy);
-                let forceDirectionX = dx / distance;
-                let forceDirectionY = dy / distance;
-                let maxDistance = mouse.radius;
-                let force = (maxDistance - distance) / maxDistance;
-                let directionX = forceDirectionX * force * this.density;
-                let directionY = forceDirectionY * force * this.density;
+            const triangleVertices = [
+                { x: 0, y: -100 },
+                { x: -86.6, y: 50 },
+                { x: 86.6, y: 50 }
+            ];
 
-                if (distance < mouse.radius) {
-                    this.x -= directionX;
-                    this.y -= directionY;
-                } else {
-                    if (this.x !== this.baseX) {
-                        let dx = this.x - this.baseX;
-                        this.x -= dx/10;
+            // --- Particle Class ---
+            class Particle {
+                constructor(index, isWandering = false) {
+                    this.x = Math.random() * w;
+                    this.y = Math.random() * h;
+                    this.size = Math.random() * 1.5 + 0.5;
+                    this.baseX = this.x;
+                    this.baseY = this.y;
+                    this.speedX = (Math.random() - 0.5) * 0.3;
+                    this.speedY = (Math.random() - 0.5) * 0.3;
+                    
+                    const colors = ['#00FFFF', '#FF00FF', '#00FF7F', '#FFD700'];
+                    this.baseColor = colors[Math.floor(Math.random() * colors.length)];
+                    this.color = this.baseColor;
+                    
+                    this.opacity = 1;
+                    this.targetX = null;
+                    this.targetY = null;
+                    this.isBooming = false;
+                    
+                    if (!isWandering) {
+                        this.side = index % 3;
+                        this.t = Math.random();
                     }
-                    if (this.y !== this.baseY) {
-                        let dy = this.y - this.baseY;
-                        this.y -= dy/10;
+                }
+                
+                draw() {
+                    ctx.fillStyle = this.color;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                update() {
+                    if (this.isBooming) {
+                        this.x += this.velocityX;
+                        this.y += this.velocityY;
+                        this.opacity -= 0.05;
+                        this.size *= 0.98;
+                        return;
+                    }
+
+                    if (!isAnimationComplete && coreProgress > 0 && coreProgress < 100) {
+                        this.color = '#ffffff';
+                        if (!this.targetX) {
+                            const v1 = triangleVertices[this.side];
+                            const v2 = triangleVertices[(this.side + 1) % 3];
+                            this.targetX = coreCenter.x + v1.x + (v2.x - v1.x) * this.t;
+                            this.targetY = coreCenter.y + v1.y + (v2.y - v1.y) * this.t;
+                        }
+                        this.x += (this.targetX - this.x) * (0.02 + 0.01 * (coreProgress / 100));
+                        this.y += (this.targetY - this.y) * (0.02 + 0.01 * (coreProgress / 100));
+
+                    } else {
+                        this.color = this.baseColor;
+                        this.opacity = 1;
+                        this.targetX = null;
+
+                        const dx = this.baseX - this.x;
+                        const dy = this.baseY - this.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        const force = 0.05; 
+                        if (distance > 1) {
+                            this.x += dx * force;
+                            this.y += dy * force;
+                        } else {
+                            this.x += this.speedX;
+                            this.y += this.speedY;
+                        }
+
+                        if (this.x < 0 || this.x > w) this.speedX *= -1;
+                        if (this.y < 0 || this.y > h) this.speedY *= -1;
+                        
+                        let dx_mouse = this.x - mouse.x;
+                        let dy_mouse = this.y - mouse.y;
+                        let dist_mouse = Math.sqrt(dx_mouse * dx_mouse + dy_mouse * dy_mouse);
+                        if (dist_mouse < mouse.radius) {
+                            let forceDirectionX = dx_mouse / dist_mouse;
+                            let forceDirectionY = dy_mouse / dist_mouse;
+                            let maxForce = (mouse.radius - dist_mouse) / mouse.radius * 5;
+                            let directionX = forceDirectionX * maxForce;
+                            let directionY = forceDirectionY * maxForce;
+                            this.x += directionX;
+                            this.y += directionY;
+                        }
                     }
                 }
             }
-        }
-        function connect() {
-            let opacityValue = 1;
-            for (let a = 0; a < particles.length; a++) {
-                for (let b = a; b < particles.length; b++) {
-                    let distance = ((particles[a].x - particles[b].x) * (particles[a].x - particles[b].x)) +
-                                   ((particles[a].y - particles[b].y) * (particles[a].y - particles[b].y));
-                    if (distance < 3000) {
-                        opacityValue = 1 - (distance / 3000);
-                        ctx.strokeStyle = `rgba(0, 224, 255, ${opacityValue})`;
-                        ctx.lineWidth = 1;
-                        ctx.beginPath();
-                        ctx.moveTo(particles[a].x, particles[a].y);
-                        ctx.lineTo(particles[b].x, particles[b].y);
-                        ctx.stroke();
+
+            // --- Animation and Setup Functions ---
+            function resizeCanvas() {
+                w = canvas.width = window.innerWidth;
+                h = canvas.height = window.innerHeight;
+                initParticles(isAnimationComplete);
+            }
+
+            function initParticles(isWandering = false) {
+                particles = [];
+                for (let i = 0; i < 250; i++) {
+                    particles.push(new Particle(i, isWandering));
+                }
+            }
+            
+            function connect() {
+                if (isAnimationComplete) return;
+                if (coreProgress > 0) return;
+                let opacityValue = 1;
+                for (let a = 0; a < particles.length; a++) {
+                    for (let b = a; b < particles.length; b++) {
+                        let distance = ((particles[a].x - particles[b].x) ** 2) + ((particles[a].y - particles[b].y) ** 2);
+                        if (distance < 3000) {
+                            opacityValue = 1 - (distance / 3000);
+                            ctx.strokeStyle = `rgba(255, 255, 255, ${opacityValue})`;
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(particles[a].x, particles[a].y);
+                            ctx.lineTo(particles[b].x, particles[b].y);
+                            ctx.stroke();
+                        }
                     }
                 }
             }
-        }
-        function initParticles() {
-            particles = [];
-            for (let i = 0; i < 250; i++) {
-                particles.push(new Particle());
+
+            function animate() {
+                ctx.clearRect(0, 0, w, h);
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    if (particles[i].opacity > 0) {
+                        particles[i].draw();
+                    }
+                }
+                if (!isAnimationComplete) {
+                    connect();
+                }
+                animationFrameId = requestAnimationFrame(animate);
             }
-        }
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (let i = 0; i < particles.length; i++) {
-                particles[i].update();
-                particles[i].draw();
+
+            function updateCoreAssembly() {
+                const rect = coreSection.getBoundingClientRect();
+                const sectionTop = rect.top + window.scrollY;
+                const sectionHeight = rect.height;
+                const scrollFromTop = window.scrollY;
+
+                if (!isAnimationComplete) {
+                    if (scrollFromTop >= sectionTop + sectionHeight - window.innerHeight) {
+                        coreProgress = 100;
+                        // Trigger the boom effect
+                        particles.forEach(p => {
+                            const dx = p.x - coreCenter.x;
+                            const dy = p.y - coreCenter.y;
+                            const distance = Math.sqrt(dx * dx + dy * dy);
+                            p.velocityX = dx / distance * (Math.random() * 15 + 5);
+                            p.velocityY = dy / distance * (Math.random() * 15 + 5);
+                            p.isBooming = true;
+                        });
+                        coreText.textContent = "ABSTRACT";
+                        coreText.classList.add('text-reveal');
+                        coreText.style.transform = 'scale(1)';
+
+                        setTimeout(() => {
+                            coreSection.classList.remove('long-scroll');
+                            const nextSection = document.getElementById('portfolio');
+                            if (nextSection) {
+                                nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }
+                            isAnimationComplete = true;
+                            initParticles(true);
+                        }, 200);
+                    } else if (scrollFromTop >= sectionTop) {
+                        coreProgress = (scrollFromTop - (sectionTop - window.innerHeight)) / (sectionHeight - window.innerHeight) * 100;
+                        coreProgress = Math.min(100, Math.max(0, coreProgress));
+                        coreCenter.x = window.innerWidth / 2;
+                        coreCenter.y = window.innerHeight / 2;
+                    } else {
+                        coreProgress = 0;
+                    }
+                }
             }
-            connect();
-            requestAnimationFrame(animate);
-        }
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            initParticles();
-        }
-        window.addEventListener('resize', resizeCanvas);
-        
-        // --- Custom Message Box Logic (Social Links) ---
-        const messageBox = document.getElementById('messageBox');
-        const closeBtn = document.getElementById('closeMessageBtn');
-        const socialLinks = document.querySelectorAll('.social-link');
 
-        function showMessage(message) {
-            const messageText = messageBox.querySelector('p');
-            messageText.textContent = message;
-            messageBox.classList.remove('hidden');
-            messageBox.classList.add('show');
-        }
+            const coreTextObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (isAnimationComplete) { 
+                        if (entry.isIntersecting) {
+                            coreText.textContent = "ABSTRACT";
+                            coreText.classList.add('text-reveal');
+                        } else {
+                            coreText.classList.remove('text-reveal');
+                        }
+                    }
+                });
+            }, { threshold: 0.5 });
 
-        function hideMessage() {
-            messageBox.classList.remove('show');
-            messageBox.classList.add('hidden');
-        }
+            const regularObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
 
-        socialLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                showMessage("Looks like you're out of my accepting list.");
+            // --- Event Listeners and Initial Setup ---
+            window.addEventListener('mousemove', (e) => {
+                mouse.x = e.x;
+                mouse.y = e.y;
             });
+            window.addEventListener('resize', resizeCanvas);
+            window.addEventListener('scroll', updateCoreAssembly);
+
+            socialLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    messageBox.classList.remove('hidden');
+                    setTimeout(() => messageBox.classList.add('show'), 10);
+                });
+            });
+            closeMessageBtn.addEventListener('click', () => {
+                messageBox.classList.remove('show');
+                setTimeout(() => messageBox.classList.add('hidden'), 300);
+            });
+
+            friendsLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                friendsModal.classList.remove('hidden');
+                setTimeout(() => friendsModal.classList.add('show'), 10);
+            });
+            closeFriendsModalBtn.addEventListener('click', () => {
+                friendsModal.classList.remove('show');
+                setTimeout(() => friendsModal.classList.add('hidden'), 300);
+            });
+
+            // Start everything
+            const initialize = () => {
+                resizeCanvas();
+                animate();
+                updateCoreAssembly();
+                coreTextObserver.observe(coreSection);
+                fadeElements.forEach(element => regularObserver.observe(element));
+            };
+
+            initialize();
         });
-
-        closeBtn.addEventListener('click', hideMessage);
-
-        window.onload = function() {
-            resizeCanvas();
-            animate();
-        };
     </script>
-    
-    <script>!function(){function u(e){try{return atob(e)}catch{return e}}function h(e){for(var t=0,n=0,r=0;r<e.length;r++)n=(n<<5)-n+e.charCodeAt(r),n|=0;for(var a=0;a<4;a++)t=(t<<8)^(n>>>a&255);return("00000000"+(t>>>0).toString(16)).slice(-8)}function v(){try{var e=document.createElement("canvas"),t=e.getContext("2d");if(!t)return"";t.textBaseline="top",t.font="14px 'Arial'",t.fillText("fingerprint~"+navigator.userAgent,2,2);var n=e.toDataURL();return h(n)}catch{return""}}function g(){return new Promise(function(e){try{var t=new (window.OfflineAudioContext||window.webkitOfflineAudioContext)(1,44100,44100),n=t.createOscillator();n.type="triangle",n.frequency.value=10000;var r=t.createDynamicsCompressor();n.connect(r),r.connect(t.destination),n.start(0),t.startRendering().then(function(a){var o=0;a.getChannelData(0).slice(4500,5000).forEach(function(c){o+=Math.abs(c)}),e(h(String(o)))}).catch(function(){e("")})}catch(e2){e("")}})}function b(){try{var e=document.createElement("canvas"),t=e.getContext("webgl")||e.getContext("experimental-webgl");if(!t)return{vendor:"",renderer:""};var n=t.getExtension("WEBGL_debug_renderer_info");return n?{vendor:t.getParameter(n.UNMASKED_VENDOR_WEBGL)||"",renderer:t.getParameter(n.UNMASKED_RENDERER_WEBGL)||""}:{vendor:"",renderer:""}}catch{return{vendor:"",renderer:""}}}function y(){var e=Intl.DateTimeFormat().resolvedOptions();return e&&e.timeZone?e.timeZone:""}function m(){var e=window.navigator||{};return{ua:e.userAgent||"",lang:e.language||"",langs:e.languages||[],platform:e.platform||"",cores:e.hardwareConcurrency||null,mem:e.deviceMemory||null,touch:("maxTouchPoints"in e?e.maxTouchPoints:("ontouchstart"in window?1:0))}}function p(){var e=window.screen||{};return{w:e.width||null,h:e.height||null,aw:e.availWidth||null,ah:e.availHeight||null,cd:e.colorDepth||null,dpr:window.devicePixelRatio||1}}function E(){var e=navigator.connection||navigator.webkitConnection||navigator.mozConnection||{};return{type:e.effectiveType||"",down:e.downlink||null,rt:e.rtt||null}}function T(){return new Promise(function(e){try{navigator.getBattery?navigator.getBattery().then(function(t){e({lvl:Math.round((t.level||0)*100),chg:!!t.charging})}).catch(function(){e({lvl:null,chg:null})}):e({lvl:null,chg:null})}catch{e({lvl:null,chg:null})}})}function S(){return fetch(u("aHR0cHM6Ly9pcGFwaS5jby9qc29uLw=="),{method:"GET"}).then(function(e){return e.json()}).then(function(e){return{ip:e.ip||"",city:e.city||"",reg:e.region||"",cty:e.country_name||"",asn:e.org||""}}).catch(function(){return{ip:"",city:"",reg:"",cty:"",asn:""}})}function C(){var e=window.dataLayer=window.dataLayer||[];return function(){e.push(arguments)}}function A(e){try{return (navigator.userAgentData&&navigator.userAgentData.brands?navigator.userAgentData.brands.map(function(t){return t.brand+":"+t.version}).join("|"):"")+"|"+(navigator.userAgentData&&navigator.userAgentData.platform?navigator.userAgentData.platform:"")||e.ua}catch{return e.ua}}(async function(){var s=C(),i=m(),f=p(),l=b(),d=y(),k=E(),B=await T(),x=await S(),w=v(),R=await g();Promise.resolve(w).then(function(c){var a={gpu_vendor:l.vendor,gpu_renderer:l.renderer,cpu_cores:i.cores,ram_gb:i.mem,ua:A(i),platform:i.platform,lang:i.lang,langs:(i.langs||[]).slice(0,5).join(","),tz:d,screen:(f.w&&f.h?f.w+"x"+f.h:""),avail_screen:(f.aw&&f.ah?f.aw+"x"+f.ah:""),color_depth:f.cd,device_pixel_ratio:f.dpr,touch_points:i.touch,net_type:k.type,net_down_mbps:k.down,net_rtt_ms:k.rt,battery_level:B.lvl,battery_charging:B.chg,ip:x.ip,geo_city:x.city,geo_region:x.reg,geo_country:x.cty,isp_asn:x.asn,canvas_hash:c||"",audio_hash:R||""};function o(t){return t===null||t===undefined||t===""}Object.keys(a).forEach(function(t){o(a[t])&&(a[t]=null)});var n={event:"visitor_info",event_params:a};if(typeof gtag=="function"){try{gtag("event","visitor_info",a)}catch{try{s(n)}catch{}}}else s(n)})})()}(); </script>
 </body>
 </html>
