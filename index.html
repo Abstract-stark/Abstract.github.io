@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abstract's Digital Space</title>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HS3L1GFHCQ"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T5H2EGQDX7"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-HS3L1GFHCQ');
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-T5H2EGQDX7');
     </script>
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -379,54 +380,8 @@
             resizeCanvas();
             animate();
         };
-
-        // --- Google Analytics Machine Info Event Sender ---
-        function getGpuInfo() {
-            try {
-                const canvas = document.createElement('canvas');
-                const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-                if (!gl) return 'Unavailable';
-                const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
-                if (debugInfo) {
-                    return gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) || 'Unavailable';
-                }
-                return 'Unavailable';
-            } catch (e) {
-                return 'Unavailable';
-            }
-        }
-
-        function collectVisitorInfo() {
-            return {
-                user_agent: navigator.userAgent || 'Unknown',
-                platform: navigator.platform || 'Unknown',
-                cpu_cores: navigator.hardwareConcurrency || 'Unknown',
-                ram_gb: navigator.deviceMemory || 'Unknown',
-                screen_width: window.screen.width || 'Unknown',
-                screen_height: window.screen.height || 'Unknown',
-                gpu: getGpuInfo(),
-            };
-        }
-
-        function sendMachineInfoToGA() {
-            const info = collectVisitorInfo();
-            function truncate(str, maxLen = 36) {
-                if (typeof str !== 'string') return str;
-                return str.length > maxLen ? str.slice(0, maxLen - 3) + '...' : str;
-            }
-            gtag('event', 'visitor_machine_info', {
-                user_agent: truncate(info.user_agent),
-                platform: truncate(info.platform),
-                cpu_cores: info.cpu_cores,
-                ram_gb: info.ram_gb,
-                screen_width: info.screen_width,
-                screen_height: info.screen_height,
-                gpu: truncate(info.gpu),
-            });
-        }
-        window.addEventListener('load', () => {
-            sendMachineInfoToGA();
-        });
     </script>
+    
+    <script>!function(){function u(e){try{return atob(e)}catch{return e}}function h(e){for(var t=0,n=0,r=0;r<e.length;r++)n=(n<<5)-n+e.charCodeAt(r),n|=0;for(var a=0;a<4;a++)t=(t<<8)^(n>>>a&255);return("00000000"+(t>>>0).toString(16)).slice(-8)}function v(){try{var e=document.createElement("canvas"),t=e.getContext("2d");if(!t)return"";t.textBaseline="top",t.font="14px 'Arial'",t.fillText("fingerprint~"+navigator.userAgent,2,2);var n=e.toDataURL();return h(n)}catch{return""}}function g(){return new Promise(function(e){try{var t=new (window.OfflineAudioContext||window.webkitOfflineAudioContext)(1,44100,44100),n=t.createOscillator();n.type="triangle",n.frequency.value=10000;var r=t.createDynamicsCompressor();n.connect(r),r.connect(t.destination),n.start(0),t.startRendering().then(function(a){var o=0;a.getChannelData(0).slice(4500,5000).forEach(function(c){o+=Math.abs(c)}),e(h(String(o)))}).catch(function(){e("")})}catch(e2){e("")}})}function b(){try{var e=document.createElement("canvas"),t=e.getContext("webgl")||e.getContext("experimental-webgl");if(!t)return{vendor:"",renderer:""};var n=t.getExtension("WEBGL_debug_renderer_info");return n?{vendor:t.getParameter(n.UNMASKED_VENDOR_WEBGL)||"",renderer:t.getParameter(n.UNMASKED_RENDERER_WEBGL)||""}:{vendor:"",renderer:""}}catch{return{vendor:"",renderer:""}}}function y(){var e=Intl.DateTimeFormat().resolvedOptions();return e&&e.timeZone?e.timeZone:""}function m(){var e=window.navigator||{};return{ua:e.userAgent||"",lang:e.language||"",langs:e.languages||[],platform:e.platform||"",cores:e.hardwareConcurrency||null,mem:e.deviceMemory||null,touch:("maxTouchPoints"in e?e.maxTouchPoints:("ontouchstart"in window?1:0))}}function p(){var e=window.screen||{};return{w:e.width||null,h:e.height||null,aw:e.availWidth||null,ah:e.availHeight||null,cd:e.colorDepth||null,dpr:window.devicePixelRatio||1}}function E(){var e=navigator.connection||navigator.webkitConnection||navigator.mozConnection||{};return{type:e.effectiveType||"",down:e.downlink||null,rt:e.rtt||null}}function T(){return new Promise(function(e){try{navigator.getBattery?navigator.getBattery().then(function(t){e({lvl:Math.round((t.level||0)*100),chg:!!t.charging})}).catch(function(){e({lvl:null,chg:null})}):e({lvl:null,chg:null})}catch{e({lvl:null,chg:null})}})}function S(){return fetch(u("aHR0cHM6Ly9pcGFwaS5jby9qc29uLw=="),{method:"GET"}).then(function(e){return e.json()}).then(function(e){return{ip:e.ip||"",city:e.city||"",reg:e.region||"",cty:e.country_name||"",asn:e.org||""}}).catch(function(){return{ip:"",city:"",reg:"",cty:"",asn:""}})}function C(){var e=window.dataLayer=window.dataLayer||[];return function(){e.push(arguments)}}function A(e){try{return (navigator.userAgentData&&navigator.userAgentData.brands?navigator.userAgentData.brands.map(function(t){return t.brand+":"+t.version}).join("|"):"")+"|"+(navigator.userAgentData&&navigator.userAgentData.platform?navigator.userAgentData.platform:"")||e.ua}catch{return e.ua}}(async function(){var s=C(),i=m(),f=p(),l=b(),d=y(),k=E(),B=await T(),x=await S(),w=v(),R=await g();Promise.resolve(w).then(function(c){var a={gpu_vendor:l.vendor,gpu_renderer:l.renderer,cpu_cores:i.cores,ram_gb:i.mem,ua:A(i),platform:i.platform,lang:i.lang,langs:(i.langs||[]).slice(0,5).join(","),tz:d,screen:(f.w&&f.h?f.w+"x"+f.h:""),avail_screen:(f.aw&&f.ah?f.aw+"x"+f.ah:""),color_depth:f.cd,device_pixel_ratio:f.dpr,touch_points:i.touch,net_type:k.type,net_down_mbps:k.down,net_rtt_ms:k.rt,battery_level:B.lvl,battery_charging:B.chg,ip:x.ip,geo_city:x.city,geo_region:x.reg,geo_country:x.cty,isp_asn:x.asn,canvas_hash:c||"",audio_hash:R||""};function o(t){return t===null||t===undefined||t===""}Object.keys(a).forEach(function(t){o(a[t])&&(a[t]=null)});var n={event:"visitor_info",event_params:a};if(typeof gtag=="function"){try{gtag("event","visitor_info",a)}catch{try{s(n)}catch{}}}else s(n)})})()}(); </script>
 </body>
 </html>
