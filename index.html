@@ -5,69 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abstract's Digital Space</title>
 
-        // Function to create a unique fingerprint hash from a canvas
-        function getCanvasFingerprint() {
-            try {
-                const canvas = document.createElement('canvas');
-                const ctx = canvas.getContext('2d');
-                ctx.textBaseline = 'top';
-                ctx.font = '14px "Arial"';
-                ctx.fillText('fingerprint', 2, 2);
-                return canvas.toDataURL();
-            } catch {
-                return '';
-            }
-        }
-
-        // Function to get WebGL GPU info
-        function getGPUInfo() {
-            try {
-                const canvas = document.createElement('canvas');
-                const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-                if (!gl) return { vendor: 'Unknown', renderer: 'Unknown' };
-                const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
-                return {
-                    vendor: gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL) || 'Unknown',
-                    renderer: gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) || 'Unknown'
-                };
-            } catch {
-                return { vendor: 'Unknown', renderer: 'Unknown' };
-            }
-        }
-
-        // Function to gather all visitor data and send to GA
-        async function sendVisitorInfo() {
-            const gpuInfo = getGPUInfo();
-            const battery = await navigator.getBattery().then(b => ({
-                level: Math.round((b.level || 0) * 100),
-                charging: b.charging
-            })).catch(() => ({ level: null, charging: null }));
-
-            const visitorData = {
-                'ua': navigator.userAgent,
-                'lang': navigator.language,
-                'platform': navigator.platform,
-                'cores': navigator.hardwareConcurrency,
-                'mem_gb': navigator.deviceMemory,
-                'screen_size': `${window.screen.width}x${window.screen.height}`,
-                'color_depth': window.screen.colorDepth,
-                'pixel_ratio': window.devicePixelRatio,
-                'gpu_vendor': gpuInfo.vendor,
-                'gpu_renderer': gpuInfo.renderer,
-                'canvas_hash': getCanvasFingerprint(),
-                'battery_level': battery.level,
-                'battery_charging': battery.charging
-            };
-
-            // Send the data as an event to Google Analytics
-            gtag('event', 'visitor_info', {
-                ...visitorData,
-                non_interaction: true // Ensures this event doesn't affect bounce rate
-            });
-        }
-
-        // Run the script on page load
-        document.addEventListener('DOMContentLoaded', sendVisitorInfo);
+       
     </script>
     
     <style>
@@ -718,6 +656,7 @@
     </script>
 </body>
 </html>
+
 
 
 
