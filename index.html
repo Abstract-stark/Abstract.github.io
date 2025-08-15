@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abstract</title>
     <!-- New Fonts: Poppins (Bold) and Lato (Light) for a premium feel -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Lato:wght=300;400&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght=700&family=Lato:wght=300;400&display=swap">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -92,7 +92,7 @@
         .scroll-in {
             opacity: 0;
             transform: translateY(40px);
-            transition: opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
             will-change: opacity, transform;
         }
         .scroll-in.is-visible {
@@ -189,6 +189,8 @@
             animation: blinkCursor 0.75s step-end infinite;
         }
     </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HS3L1GFHCQ"></script>
 </head>
 <body class="bg-dark-bg text-gray-200">
 
@@ -261,19 +263,19 @@
             <h2 class="text-4xl md:text-5xl font-bold font-heading mb-12 text-blue-highlight scroll-in">The Toolset</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Skill Card: Gamer -->
-                <div id="gamer-card" class="p-8 rounded-2xl skill-card-base hover:bg-dark-surface/60 transition-all duration-300 transform hover:scale-105 scroll-in mixed-border cursor-pointer" data-delay="0.1s">
+                <div id="gamer-card" class="p-8 rounded-2xl skill-card-base hover:bg-dark-surface/60 transition-all duration-300 transform hover:scale-105 scroll-in mixed-border cursor-pointer" data-delay="0.05s">
                     <div class="text-5xl mb-4 text-white">🎮</div>
                     <h3 class="text-2xl font-bold font-heading text-green-accent mb-2">Gamer</h3>
                     <p class="text-gray-400 font-body">My keyboard and mouse are my trusty steeds. I game for fun, but my K/D ratio says I'm serious business.</p>
                 </div>
                 <!-- Skill Card: Designer -->
-                <div id="designer-card" class="p-8 rounded-2xl skill-card-base hover:bg-dark-surface/60 transition-all duration-300 transform hover:scale-105 scroll-in mixed-border cursor-pointer" data-delay="0.2s">
+                <div id="designer-card" class="p-8 rounded-2xl skill-card-base hover:bg-dark-surface/60 transition-all duration-300 transform hover:scale-105 scroll-in mixed-border cursor-pointer" data-delay="0.1s">
                     <div class="text-5xl mb-4 text-white">🎨</div>
                     <h3 class="text-2xl font-bold font-heading text-blue-highlight mb-2">Designer</h3>
                     <p class="text-gray-400 font-body">I design websites that break the internet—and then I fix them. The aesthetic is always a priority.</p>
                 </div>
                 <!-- Skill Card: Friends -->
-                <div id="friends-card" class="p-8 rounded-2xl skill-card-base hover:bg-dark-surface/60 transition-all duration-300 transform hover:scale-105 scroll-in mixed-border cursor-pointer" data-delay="0.3s">
+                <div id="friends-card" class="p-8 rounded-2xl skill-card-base hover:bg-dark-surface/60 transition-all duration-300 transform hover:scale-105 scroll-in mixed-border cursor-pointer" data-delay="0.15s">
                     <div class="text-5xl mb-4 text-white">🤝</div>
                     <h3 class="text-2xl font-bold font-heading text-green-accent mb-2">Friends</h3>
                     <p class="text-gray-400 font-body">My friends are a vibe. We get together to make cinematic b-roll of our everyday lives.</p>
@@ -337,7 +339,7 @@
         let animationProgress = 0; // 0 to 1, controlled by scroll
         let animationState = 'parallax'; // 'parallax', 'forming', 'glowing', 'scattering'
         const normalParticleSize = 2.5;
-        const smallParticleSize = 0.5; // Even smaller size for the animation
+        const smallParticleSize = 1; // Smaller particle size to prevent a blinding flash
         
         let lastScrollY = 0;
         let lastScrollTime = Date.now();
@@ -628,16 +630,11 @@
                     animationState = 'forming';
                     animationProgress = (scrollY - startAnimation) / (formingEnd - startAnimation);
                     animationContentEl.style.opacity = 0;
-                } else if (scrollY >= formingEnd && scrollY < glowingEnd) {
-                    // Phase 2: Glowing & holding the triangle shape
+                } else if (scrollY >= formingEnd && scrollY < scatteringEnd) {
+                    // Phase 2: Glowing & scattering
                     animationState = 'glowing';
                     animationProgress = 1; 
-                    animationContentEl.style.opacity = 0;
-                } else if (scrollY >= glowingEnd && scrollY < scatteringEnd) {
-                    // Phase 3: Scattering & showing the text
-                    animationState = 'scattering';
                     const scatteringProgress = (scrollY - glowingEnd) / (scatteringEnd - glowingEnd);
-                    animationProgress = 1 - scatteringProgress; // Reverse progress for scattering
                     animationContentEl.style.opacity = scatteringProgress;
                     
                     // Trigger the text typing animation once
@@ -645,7 +642,7 @@
                         typeAnimationText();
                     }
                 } else {
-                    // Phase 4: Text disappears and About section appears
+                    // Phase 3: Text disappears and About section appears
                     const textFadeOutProgress = (scrollY - scatteringEnd) / (aboutTop - scatteringEnd);
                     animationContentEl.style.opacity = 1 - textFadeOutProgress;
                     animationState = 'parallax'; // Reset state for the next section
@@ -663,15 +660,8 @@
             animate();
             setupScrollAnimations();
             
-            // Prompt for user's name
-            const namePromptMessage = "god is seeing u be honest\n\nWhat is your name?";
-            const userName = window.prompt(namePromptMessage, "");
-            
-            // Hero section slogan animation
-            let sloganText = "Mastering the art of play and the science of design.";
-            if (userName && userName.trim() !== "") {
-                sloganText = `${userName.trim()}, welcome to the world of abstract design.`;
-            }
+            // Set the slogan text directly
+            const sloganText = "ho there";
             const sloganElement = document.getElementById('slogan-text');
             const exploreBtn = document.getElementById('explore-btn');
 
